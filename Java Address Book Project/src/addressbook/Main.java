@@ -3,14 +3,14 @@ import java.util.Scanner;
 import java.util.List;
 import java.util.Map;
 
-public class Part3 {
+public class Main {
 	public static Scanner sc;
 
 	  public static void main(String[] args) {
 	    sc = new Scanner(System.in);
 	    int input = 0;
 
-	    Part2 addressBook = new Part2();
+	    AddressBook addressBook = new AddressBook();
 	    while (input != 6) {
 	      printMenu();
 	      input = getIntInput();
@@ -56,7 +56,7 @@ public class Part3 {
 	    return sc.nextLine();
 	  }
 
-	  public static void addEntry(Part2 addressBook) {
+	  public static void addEntry(AddressBook addressBook) {
 	    System.out.print("Enter first name: ");
 	    String firstName = sc.nextLine();
 
@@ -69,7 +69,7 @@ public class Part3 {
 	    System.out.print("Enter email: ");
 	    String email = sc.next().strip();
 
-	    Part1 entry = new Part1(firstName, lastName, phone, email);
+	    Entry entry = new Entry(firstName, lastName, phone, email);
 	    addressBook.addEntry(entry);
 	  }
 
@@ -83,7 +83,7 @@ public class Part3 {
 	    System.out.println("6. Quit the program");
 	  }
 
-	  public static void searchForSpecificEntry(Part2 addressBook) {
+	  public static void searchForSpecificEntry(AddressBook addressBook) {
 	    System.out.println("Please select an option");
 	    System.out.println("1. Search By First Name");
 	    System.out.println("2. Search By Last Name");
@@ -99,9 +99,9 @@ public class Part3 {
 	    } else {
 	      System.out.print("Enter your search query: ");
 	      String searchQuery = sc.nextLine();
-	      List<Part1> info = addressBook.searchForAnEntry(searchMapping.get(input), searchQuery);
+	      List<Entry> info = addressBook.searchForAnEntry(searchMapping.get(input), searchQuery);
 	      System.out.println("Here are your search results:");
-	      for (Part1 entry : info) {
+	      for (Entry entry : info) {
 	        System.out.println(entry);
 	      }
 	    }

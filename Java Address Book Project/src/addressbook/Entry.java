@@ -1,14 +1,14 @@
 package addressbook;
 import java.util.Objects;
 
-public class Part1 {
+public class Entry {
   private String firstName;
   private String lastName;
   private String phone;
   private String email;
   
   
-  public Part1(String firstName, String lastName, String phone, String email) {
+  public Entry(String firstName, String lastName, String phone, String email) {
 	    this.firstName = firstName;
 	    this.lastName = lastName;
 	    this.phone = phone;
@@ -55,7 +55,7 @@ public class Part1 {
 	    if (o == null || getClass() != o.getClass()) {
 	      return false;
 	    }
-	    Part1 entry = (Part1) o;
+	    Entry entry = (Entry) o;
 	    return Objects.equals(getEmail(), entry.getEmail());
 	  }
 

@@ -4,15 +4,15 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.StringJoiner;
 
-public class Part2 {
+public class AddressBook {
 
-	private List<Part1> info;
+	private List<Entry> info;
 
-	  public Part2() {
+	  public AddressBook() {
 	    this.info = new ArrayList<>();
 	  }
 
-	  public boolean addEntry(Part1 entry) {
+	  public boolean addEntry(Entry entry) {
 	    if (this.info.contains(entry)) {
 	      System.out.println("Another entry already present with same email address. Please try again\n");
 	      return false;
@@ -44,7 +44,7 @@ public class Part2 {
 	    return -1;
 	  }
 
-	  public List<Part1> searchForAnEntry(String searchType, String searchQuery) {
+	  public List<Entry> searchForAnEntry(String searchType, String searchQuery) {
 	    searchQuery = searchQuery.strip();
 	    if (searchType.equals("firstName")) {
 	      return searchByFirstName(searchQuery);
@@ -57,9 +57,9 @@ public class Part2 {
 	    }
 	  }
 
-	  private List<Part1> searchByFirstName(String firstName) {
-	    List<Part1> ans = new ArrayList<>();
-	    for (Part1 entry : this.info) {
+	  private List<Entry> searchByFirstName(String firstName) {
+	    List<Entry> ans = new ArrayList<>();
+	    for (Entry entry : this.info) {
 	      if (entry.getFirstName().contains(firstName)) {
 	        ans.add(entry);
 	      }
@@ -67,9 +67,9 @@ public class Part2 {
 	    return ans;
 	  }
 
-	  private List<Part1> searchByLastName(String lastName) {
-	    List<Part1> ans = new ArrayList<>();
-	    for (Part1 entry : this.info) {
+	  private List<Entry> searchByLastName(String lastName) {
+	    List<Entry> ans = new ArrayList<>();
+	    for (Entry entry : this.info) {
 	      if (entry.getLastName().contains(lastName)) {
 	        ans.add(entry);
 	      }
@@ -77,9 +77,9 @@ public class Part2 {
 	    return ans;
 	  }
 
-	  private List<Part1> searchByPhone(String phone) {
-	    List<Part1> ans = new ArrayList<>();
-	    for (Part1 entry : this.info) {
+	  private List<Entry> searchByPhone(String phone) {
+	    List<Entry> ans = new ArrayList<>();
+	    for (Entry entry : this.info) {
 	      if (entry.getPhone().contains(phone)) {
 	        ans.add(entry);
 	      }
@@ -87,8 +87,8 @@ public class Part2 {
 	    return ans;
 	  }
 
-	  private List<Part1> searchByEmail(String email) {
-	    for (Part1 entry : this.info) {
+	  private List<Entry> searchByEmail(String email) {
+	    for (Entry entry : this.info) {
 	      if (entry.getEmail().equals(email)) {
 	        return Arrays.asList(entry);
 	      }
@@ -113,7 +113,7 @@ public class Part2 {
 	  @Override
 	  public String toString() {
 	    StringJoiner sj = new StringJoiner("\n");
-	    for (Part1 entry : this.info) {
+	    for (Entry entry : this.info) {
 	      sj.add(entry.toString());
 	    }
 	    return sj.toString();
